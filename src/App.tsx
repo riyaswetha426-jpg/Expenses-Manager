@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { useTheme } from './hooks/useTheme';
@@ -7,6 +6,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Transactions from './pages/Transactions';
+import Analytics from './pages/Analytics';
+import Budgets from './pages/Budgets';
+import Export from './pages/Export';
+import Settings from './pages/Settings';
 
 function App() {
   const { theme } = useTheme();
@@ -21,7 +25,7 @@ function App() {
           
           {/* Protected Routes */}
           <Route
-            path="/*"
+            path="/"
             element={
               <ProtectedRoute>
                 <Layout />
@@ -29,11 +33,11 @@ function App() {
             }
           >
             <Route index element={<Dashboard />} />
-            <Route path="transactions" element={<div className="p-8 text-center text-gray-500">Transactions page coming soon...</div>} />
-            <Route path="analytics" element={<div className="p-8 text-center text-gray-500">Analytics page coming soon...</div>} />
-            <Route path="budgets" element={<div className="p-8 text-center text-gray-500">Budgets page coming soon...</div>} />
-            <Route path="export" element={<div className="p-8 text-center text-gray-500">Export page coming soon...</div>} />
-            <Route path="settings" element={<div className="p-8 text-center text-gray-500">Settings page coming soon...</div>} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="budgets" element={<Budgets />} />
+            <Route path="export" element={<Export />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
         </Routes>
         
